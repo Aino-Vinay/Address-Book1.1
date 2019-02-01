@@ -35,11 +35,13 @@ public class DataBaseBackendHelper implements BackendHelper {
 		scanner=new Scanner(System.in);
 
 		String configuration[]=getConfiguration();
-
+		String url="jdbc:mysql://"+configuration[0]+":"+configuration[1]+"/"+configuration[2];
+		String userName=configuration[3];
+		String password=configuration[4];
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 
-			connectionObject=DriverManager.getConnection("jdbc:mysql://"+configuration[0]+":"+configuration[1]+"/"+configuration[2],configuration[3],configuration[4]);
+			connectionObject=DriverManager.getConnection(url,userName,password);
 			statementObject=connectionObject.createStatement();
 		}
 		catch(Exception e)

@@ -50,7 +50,8 @@ public class ManageBackend extends Menu {
 		AddBackend addBackend=new AddBackend(1,"Add Backend",this);
 		SelectBackend selectBackend=new SelectBackend(2,"Select Backend",this);
 		ListBackend listBackend=new ListBackend(3,"List Backend",this);
-		Exit exit=new Exit(4,"Exit");
+		RemoveBackend removeBackend=new RemoveBackend(4,"Remove Backend",this);
+		Exit exit=new Exit(5,"Exit");
 
 		addMenuItemList(addBackend);
 
@@ -58,6 +59,8 @@ public class ManageBackend extends Menu {
 
 		addMenuItemList(listBackend);
 
+		addMenuItemList(removeBackend);
+		
 		addMenuItemList(exit);
 
 
@@ -138,5 +141,12 @@ public class ManageBackend extends Menu {
 	public void setBackendList(ArrayList<Backend> backendList) {
 		this.backendList = backendList;
 	}
+	
+	public void removeBackend(int choice){
+		backendList.remove(choice);
+		save();
+			System.out.println("Backend Removed Successfully..............!!!!!!!!!!!!!!!!!!!");
+	}
+
 
 }
